@@ -1,0 +1,9 @@
+__pycache___
+.mypy_cache
+.vscode
+.env
+env.example
+venv
+
+README.md
+setup.cfg
