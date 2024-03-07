@@ -12,4 +12,4 @@ def get_wallet_balance() -> str:
         http_session.get_wallet_balance(accountType=ACCOUNT_TYPE)
         ['result']['list'][0]['totalEquity']
     )
-    return str(round(Decimal(balance_str), 2))
+    return f'<b>{round(Decimal(balance_str), 2)} USDT</b>'
