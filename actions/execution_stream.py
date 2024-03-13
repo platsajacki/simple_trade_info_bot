@@ -5,7 +5,7 @@ from typing import Any
 
 from pybit.unified_trading import WebSocket
 
-from create_bot import API_KEY, API_SECRET, MYID, NOT_TESTNET, bot
+from create_bot import BYBIT_KEY, BYBIT_SECRET, MYID, NOT_TESTNET, bot
 from create_bot.utils import handle_message_in_thread
 
 
@@ -26,7 +26,7 @@ async def handle_message(msg: dict[str, Any], main_loop: asyncio.AbstractEventLo
 
 
 async def start_execution_stream():
-    ws = WebSocket(testnet=NOT_TESTNET, api_key=API_KEY, api_secret=API_SECRET, channel_type='private')
+    ws = WebSocket(testnet=NOT_TESTNET, api_key=BYBIT_KEY, api_secret=BYBIT_SECRET, channel_type='private')
     with ThreadPoolExecutor() as executor:
         try:
             loop = asyncio.get_event_loop()
@@ -36,4 +36,4 @@ async def start_execution_stream():
                 partial(handle_message_in_thread, coro=handle_message, main_loop=loop),
             )
         except Exception as error:
-            await bot.send_message(text=str(error), chat_id=MYID)
+            await bot.send_message(text=f'Error: {error}', chat_id=MYID)

@@ -4,7 +4,7 @@ from aiogram.filters import Command, CommandStart
 from aiogram.types import Message
 
 from actions.execution_stream import start_execution_stream
-from actions.wallet import get_wallet_balance
+from actions.wallet import get_bybit_wallet_balance, get_kucoin_wallet_balance
 from create_bot import MYID, bot, dp, keyboard
 
 
@@ -20,7 +20,16 @@ async def start(message: Message):
 @dp.message(Command('balance'))
 async def balance(message: Message):
     if message.from_user and message.from_user.id == MYID:
-        await message.answer(get_wallet_balance(), reply_markup=keyboard)
+        bybit_balance = get_bybit_wallet_balance()
+        kucoin_balnce = get_kucoin_wallet_balance()
+        await message.answer(
+            (
+                f'<b>ByBit: {bybit_balance} USDT\n'
+                f'KuCoin: {kucoin_balnce} USDT\n'
+                f'Total: {bybit_balance + kucoin_balnce} USDT</b>\n'
+
+            ), reply_markup=keyboard
+        )
 
 
 async def main():
