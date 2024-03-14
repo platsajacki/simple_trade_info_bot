@@ -24,11 +24,11 @@ async def balance(message: Message):
         kucoin_balnce = get_kucoin_wallet_balance()
         await message.answer(
             (
-                f'<b>ByBit: {bybit_balance} USDT\n'
-                f'KuCoin: {kucoin_balnce} USDT\n'
-                f'Total: {bybit_balance + kucoin_balnce} USDT</b>\n'
-
-            ), reply_markup=keyboard
+                f'ByBit: {bybit_balance}\n'
+                f'KuCoin: {kucoin_balnce}\n'
+                f'<b>Total: {bybit_balance + kucoin_balnce} USDT</b>'
+            ),
+            reply_markup=keyboard,
         )
 
 
