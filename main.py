@@ -20,8 +20,8 @@ async def start(message: Message):
 @dp.message(Command('balance'))
 async def balance(message: Message):
     if message.from_user and message.from_user.id == MYID:
-        bybit_balance = get_bybit_wallet_balance()
-        kucoin_balnce = get_kucoin_wallet_balance()
+        bybit_balance = await get_bybit_wallet_balance()
+        kucoin_balnce = await get_kucoin_wallet_balance()
         await message.answer(
             (
                 f'ByBit: {bybit_balance}\n'
