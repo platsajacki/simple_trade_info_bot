@@ -2,7 +2,7 @@
 
 Author: Menyukhov Vyacheslav | email: menyukhov@bk.ru
 
-STIB (Simple Trade Info Bot) is a simple trading information bot designed to work with the cryptocurrency exchange ByBit. It has two main functions: sending information about spot market trades and querying wallet balance.
+STIB (Simple Trade Info Bot) is a simple trading information bot designed to work with the cryptocurrency exchanges ByBit and KuCoin. It has two main functions: sending information about spot market trades and querying wallet balance (while only ByBit).
 
 ## Project Setup and Configuration
 
